@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tarelka web • about me</title>
+  <script type="module" src="https://ascii.rest/ascii.js"></script>
   <style>
     * {
       box-sizing: border-box;
@@ -127,6 +128,19 @@
       max-width: calc(100vw - 48px);
     }
 
+    .black-hole-card {
+      position: fixed;
+      right: clamp(24px, 6vw, 90px);
+      bottom: clamp(24px, 6vw, 90px);
+      width: 320px;
+      max-width: calc(100vw - 48px);
+      padding: 1rem;
+    }
+
+    .black-hole-card ascii-art {
+      font-size: 7px;
+    }
+
     /* На телефоне возвращаем по центру и сглаживаем зум видео */
     @media (max-width: 640px) {
       body {
@@ -147,6 +161,22 @@
         width: 100%;
         max-width: 380px;
         transform: none;
+      }
+
+      .black-hole-card {
+        position: static;
+        width: 100%;
+        max-width: 320px;
+      }
+
+      .black-hole-card ascii-art {
+        font-size: 6px;
+      }
+    }
+
+    @media (max-aspect-ratio: 9/16) {
+      .black-hole-card {
+        display: none;
       }
     }
   </style>
@@ -182,6 +212,11 @@
      /   ⁻  ៸|       |、⁻〵
     乀 (ˍ, ل ل       じしˍ,)ノ
       </pre>
+    </div>
+
+    <div class="glass-card black-hole-card">
+      <h3 style="text-align: center; margin-bottom: 10px;">Black hole</h3>
+      <ascii-art piece="black-hole" options='{"motion":true}'></ascii-art>
     </div>
 
   </main>

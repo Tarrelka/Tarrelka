@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSS Glassmorphism Test</title>
+  <title>trlk bio</title>
   <style>
     * {
       box-sizing: border-box;
@@ -13,43 +13,48 @@
     }
 
     body {
-      min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items: center;      /* по центру по вертикали */
+      justify-content: flex-start; /* прижато к левому краю */
+      padding: 24px 24px 24px clamp(24px, 6vw, 90px); /* отступ от левого края */
       background: #0f172a;
-      overflow: hidden;
+      overflow-x: hidden;
       position: relative;
       color: #ffffff;
     }
 
     .background-video {
-      position: absolute;
-      inset: -4px;
-      width: calc(100% + 8px);
-      height: calc(100% + 8px);
+      position: fixed;
+      inset: -8px;
+      width: calc(100% + 16px);
+      height: calc(100% + 16px);
       object-fit: cover;
-      filter: blur(2px);
+      object-position: center;
+      filter: blur(3px);
       z-index: 0;
     }
 
     body::before {
       content: "";
-      position: absolute;
+      position: fixed;
       inset: 0;
-      background: rgba(15, 23, 42, 0.3);
+      background: rgba(15, 23, 42, 0.35);
       z-index: 1;
     }
 
-    /* Frosted Glass Card */
-    .glass-card {
+    .page-layout {
       position: relative;
       z-index: 2;
-      width: 90%;
-      max-width: 400px;
-      padding: 2.5rem;
-      
-      /* Core Glassmorphism Properties */
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      width: 100%;
+      max-width: 380px;
+    }
+
+    .glass-card,
+    .social-box {
       background: rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
@@ -58,32 +63,76 @@
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
     }
 
+    .glass-card {
+      padding: 2rem 1.75rem;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 14px;
+      border: 3px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
     .glass-card h2 {
-      font-size: 1.75rem;
-      margin-bottom: 0.75rem;
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
     }
 
     .glass-card p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, 0.85);
-      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.82);
     }
 
-    .glass-btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background: rgba(255, 255, 255, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 10px;
-      color: #fff;
+    .social-box {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 12px;
+      color: #ffffff;
       text-decoration: none;
-      font-weight: 600;
-      transition: background 0.2s ease;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: background 0.2s ease, transform 0.15s ease;
     }
 
-    .glass-btn:hover {
-      background: rgba(255, 255, 255, 0.35);
+    .social-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+    }
+
+    /* На телефоне возвращаем по центру и сглаживаем зум видео */
+    @media (max-width: 640px) {
+      body {
+        justify-content: center;
+        padding: 16px;
+      }
+
+      .background-video {
+        filter: blur(10px) saturate(1.2);
+      }
+
+      body::before {
+        background: rgba(15, 23, 42, 0.48);
+      }
     }
   </style>
 </head>
@@ -93,14 +142,21 @@
     <source src="background.mp4" type="video/mp4">
   </video>
 
-  <!-- Glass Card -->
-  <div class="glass-card">
-    <h2>test</h2>
-    <p>
-      trlk bio
-    </p>
-    <a href="#" class="glass-btn">Test Button</a>
-  </div>
+  <main class="page-layout">
+    <section class="glass-card">
+      <img src="avatar.png" alt="Avatar" class="avatar">
+      <h2>test</h2>
+      <p>trlk bio</p>
+    </section>
+
+    <nav class="social-box" aria-label="Social media links">
+      <a href="https://t.me/username" class="social-btn" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://instagram.com/username" class="social-btn" target="_blank" rel="noopener">Instagram(i dont have it lol)</a>
+      <a href="https://tiktok.com/@username" class="social-btn" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://github.com/username" class="social-btn" target="_blank" rel="noopener">GitHub( lmao why u need this shi)</a>
+      <a href="https://youtube.com/username" class="social-btn" target="_blank" rel="noopener">YouTube</a>
+    </nav>
+  </main>
 
 </body>
 </html>

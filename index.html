@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Био — Мику и проекты</title>
+  <title>имя</title>
   <style>
-    /* 1. Атмосферный фон: плавный переход оттенков на весь экран */
+    /* Фон страницы */
     body {
       margin: 0;
       min-height: 100vh;
@@ -15,136 +15,59 @@
       font-family: system-ui, -apple-system, sans-serif;
       color: #f8fafc;
       background:
-        radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.28), transparent 45%),
-        radial-gradient(circle at 80% 30%, rgba(168, 85, 247, 0.24), transparent 45%),
-        linear-gradient(160deg, #090d16 0%, #111827 55%, #0b1320 100%);
+        radial-gradient(circle at 25% 20%, rgba(56, 189, 248, 0.25), transparent 45%),
+        radial-gradient(circle at 75% 75%, rgba(168, 85, 247, 0.22), transparent 45%),
+        linear-gradient(150deg, #090d16 0%, #111827 100%);
     }
 
-    /* 2. Стеклянная карточка: полупрозрачность + размытие фона + тонкая рамка */
-    .glass-card {
+    /* Стеклянная карточка */
+    .card {
       width: 100%;
-      max-width: 460px;
+      max-width: 420px;
       padding: 28px;
       border-radius: 24px;
-      background: rgba(255, 255, 255, 0.07);
+      background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       border: 1px solid rgba(255, 255, 255, 0.16);
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
     }
 
-    /* Бейдж статуса вверху карточки */
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      background: rgba(56, 189, 248, 0.14);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      color: #bae6fd;
-    }
-
-    /* Точка рядом со статусом */
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #38bdf8;
-    }
-
     h1 {
-      margin: 16px 0 8px;
-      font-size: 28px;
-      line-height: 1.2;
-    }
-
-    .bio-text {
       margin: 0 0 20px;
-      color: #cbd5e1;
-      line-height: 1.55;
-      font-size: 15px;
+      font-size: 28px;
     }
 
-    /* Список мини-плашек («крутые штучки» / теги) */
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 22px;
-    }
-
-    .tag {
-      padding: 6px 11px;
-      border-radius: 10px;
-      font-size: 13px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #e2e8f0;
-    }
-
-    /* Кнопки-ссылки: при наведении чуть приподнимаются */
-    .links {
+    /* Тестовые кнопки */
+    .buttons {
       display: grid;
       gap: 10px;
     }
 
-    .link-btn {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .btn {
+      display: block;
       padding: 12px 16px;
       border-radius: 14px;
       text-decoration: none;
       color: #f8fafc;
       background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      transition: transform 0.18s ease, background 0.18s ease;
     }
 
-    .link-btn:hover {
+    .btn:hover {
       transform: translateY(-2px);
-      background: rgba(255, 255, 255, 0.14);
-      border-color: rgba(56, 189, 248, 0.45);
-    }
-
-    .link-sub {
-      font-size: 12px;
-      color: #94a3b8;
+      background: rgba(255, 255, 255, 0.15);
     }
   </style>
 </head>
 <body>
-  <!-- Вся видимая карточка лежит внутри main -->
-  <main class="glass-card">
-    <div class="status">
-      <span class="dot"></span>
-      <span>Собираю проекты и ботов</span>
-    </div>
-
-    <h1>Твоё имя / Ник</h1>
-    <p class="bio-text">
-      Коротко о себе: делаю Telegram-ботов, экспериментирую с промптами и понемногу собираю своё веб-био.
-    </p>
-
-    <!-- Плашки с интересами или проектами -->
-    <div class="tags">
-      <span class="tag">Мику-бот</span>
-      <span class="tag">Python</span>
-      <span class="tag">Minimal UI</span>
-    </div>
-
-    <!-- Ссылки: меняй href на свои реальные адреса -->
-    <nav class="links">
-      <a class="link-btn" href="https://t.me/твой_бот">
-        <span>Бот Мику в Telegram</span>
-        <span class="link-sub">открыть -></span>
-      </a>
-      <a class="link-btn" href="https://github.com/твой_ник">
-        <span>GitHub</span>
-        <span class="link-sub">репозитории -></span>
-      </a>
+  <main class="card">
+    <h1>имя</h1>
+    <nav class="buttons">
+      <a class="btn" href="#">Тестовая кнопка 1</a>
+      <a class="btn" href="#">Тестовая кнопка 2</a>
+      <a class="btn" href="#">Тестовая кнопка 3</a>
     </nav>
   </main>
 </body>

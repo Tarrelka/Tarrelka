@@ -17,41 +17,34 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      /* Vibrant gradient background to make the glass visible */
-      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+      background: #0f172a;
       overflow: hidden;
       position: relative;
       color: #ffffff;
     }
 
-    /* Decorative background blobs to show off the blur */
-    .circle {
+    .background-video {
       position: absolute;
-      border-radius: 50%;
-      filter: blur(10px);
+      inset: -4px;
+      width: calc(100% + 8px);
+      height: calc(100% + 8px);
+      object-fit: cover;
+      filter: blur(2px);
       z-index: 0;
     }
 
-    .circle-1 {
-      width: 300px;
-      height: 300px;
-      background: linear-gradient(45deg, #ff007f, #ff8c00);
-      top: 15%;
-      left: 25%;
-    }
-
-    .circle-2 {
-      width: 250px;
-      height: 250px;
-      background: linear-gradient(45deg, #00d2ff, #3a7bd5);
-      bottom: 15%;
-      right: 25%;
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.3);
+      z-index: 1;
     }
 
     /* Frosted Glass Card */
     .glass-card {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       width: 90%;
       max-width: 400px;
       padding: 2.5rem;
@@ -96,9 +89,9 @@
 </head>
 <body>
 
-  <!-- Background Shapes -->
-  <div class="circle circle-1"></div>
-  <div class="circle circle-2"></div>
+  <video class="background-video" autoplay muted loop playsinline>
+    <source src="background.mp4" type="video/mp4">
+  </video>
 
   <!-- Glass Card -->
   <div class="glass-card">

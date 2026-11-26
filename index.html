@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>trlk bio</title>
+  <title>Tarelka web • about me</title>
   <style>
     * {
       box-sizing: border-box;
@@ -119,6 +119,14 @@
       transform: translateY(-1px);
     }
 
+    .ascii-card {
+      position: fixed;
+      right: clamp(24px, 6vw, 90px);
+      top: clamp(24px, 6vw, 90px);
+      width: 380px;
+      max-width: calc(100vw - 48px);
+    }
+
     /* На телефоне возвращаем по центру и сглаживаем зум видео */
     @media (max-width: 640px) {
       body {
@@ -133,6 +141,13 @@
       body::before {
         background: rgba(15, 23, 42, 0.48);
       }
+
+      .ascii-card {
+        position: static;
+        width: 100%;
+        max-width: 380px;
+        transform: none;
+      }
     }
   </style>
 </head>
@@ -145,17 +160,30 @@
   <main class="page-layout">
     <section class="glass-card">
       <img src="avatar.png" alt="Avatar" class="avatar">
-      <h2>test</h2>
-      <p>trlk bio</p>
+      <h2>Hello! i'm tarelka</h2>
+      <p>vibecoded</p>
     </section>
 
     <nav class="social-box" aria-label="Social media links">
+      <h3 style="text-align: center; margin-bottom: 10px;">Socials</h3>
       <a href="https://t.me/username" class="social-btn" target="_blank" rel="noopener">Telegram</a>
-      <a href="https://instagram.com/username" class="social-btn" target="_blank" rel="noopener">Instagram(i dont have it lol)</a>
       <a href="https://tiktok.com/@username" class="social-btn" target="_blank" rel="noopener">TikTok</a>
       <a href="https://github.com/username" class="social-btn" target="_blank" rel="noopener">GitHub( lmao why u need this shi)</a>
       <a href="https://youtube.com/username" class="social-btn" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://steamcommunity.com/id/username" class="social-btn" target="_blank" rel="noopener">Steam</a>
     </nav>
+    
+    <!-- new card = a ASCII card-->
+     <div class="glass-card ascii-card">
+      <h3 style="text-align: center; margin-bottom: 10px;">cool card (us)</h3>
+      <pre style="font-size: 1.85rem; line-height: 1.2; color: rgba(255, 255, 255, 0.82);">
+            へ     ♡   ╱|、
+      ૮  -   ՛ )      (`   -  7 
+     /   ⁻  ៸|       |、⁻〵
+    乀 (ˍ, ل ل       じしˍ,)ノ
+      </pre>
+    </div>
+
   </main>
 
 </body>
